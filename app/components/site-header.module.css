@@ -1,0 +1,31 @@
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid currentColor;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+}
+
+.link {
+  color: inherit;
+}
+
+.link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Not color alone, so the active page is still obvious without color perception. */
+.link[aria-current="page"] {
+  font-weight: bold;
+  text-decoration: underline;
+}
