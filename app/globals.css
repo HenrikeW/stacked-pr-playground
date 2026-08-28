@@ -72,6 +72,25 @@ hr {
   border-color: var(--bevel-dark) transparent transparent;
 }
 
+/* Motion gating, in one place. The boot script in layout.tsx resolves
+   data-animations before first paint; the media query below is the no-JS
+   fallback, scoped so an explicit "on" still wins. */
+:root[data-animations="off"] *,
+:root[data-animations="off"] *::before,
+:root[data-animations="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-animations="on"]) *,
+  :root:not([data-animations="on"]) *::before,
+  :root:not([data-animations="on"]) *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

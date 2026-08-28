@@ -25,6 +25,43 @@
   transform: scaleX(-1);
 }
 
+/* Sentries on watch: long stillness, then a quick scan of the horizon.
+   The pauses are what sell it -- constant motion would read as a fidget. */
+.mascotHead {
+  transform-box: view-box;
+  transform-origin: 50px 52px;
+  animation: look-around 13s ease-in-out infinite;
+}
+
+/* Offset so the pair never turn in unison. */
+.mascotHeadLate {
+  animation-delay: 5.5s;
+}
+
+@keyframes look-around {
+  0%,
+  62% {
+    transform: rotate(0deg);
+  }
+
+  70% {
+    transform: rotate(-11deg);
+  }
+
+  78% {
+    transform: rotate(-11deg);
+  }
+
+  86% {
+    transform: rotate(10deg);
+  }
+
+  94%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 .title {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.75rem, 6vw, 3rem);
@@ -61,7 +98,9 @@
 
 .link,
 .link:visited {
-  display: block;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
   padding: 0.4rem 1rem;
   color: var(--accent);
   text-decoration: none;
@@ -81,4 +120,19 @@
   font-weight: bold;
   background: var(--panel-cream);
   border-color: var(--bevel-in);
+}
+
+.navIcon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+
+/* Focus as well as hover, so this isn't a pointer-only flourish. */
+.link:hover .navIcon,
+.link:focus-visible .navIcon,
+.link[aria-current="page"] .navIcon {
+  opacity: 1;
 }

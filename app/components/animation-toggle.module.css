@@ -1,0 +1,24 @@
+.wrapper {
+  margin-top: 0.75rem;
+}
+
+.button {
+  padding: 0.3rem 0.9rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8125rem;
+  font-weight: bold;
+  color: var(--accent);
+  cursor: pointer;
+  background: var(--bg-sand);
+  border: 3px solid;
+  border-color: var(--bevel-out);
+}
+
+.button:hover {
+  background: var(--panel-cream);
+}
+
+.button:active,
+.button[aria-pressed="false"] {
+  border-color: var(--bevel-in);
+}
