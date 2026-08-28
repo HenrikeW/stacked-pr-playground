@@ -59,6 +59,18 @@
   width: 28px;
   height: 28px;
   color: var(--chrome);
+  transition:
+    transform 160ms ease-out,
+    color 160ms ease-out;
+}
+
+/* The 90s image rollover, done with the SVG we already have. :focus-within
+   covers the link inside, so keyboard users get it too -- and with animations
+   off it simply snaps instead of easing. */
+.card:hover .cardIcon,
+.card:focus-within .cardIcon {
+  color: var(--accent);
+  transform: scale(1.15) translateY(-2px) rotate(-6deg);
 }
 
 .cardBlurb {
