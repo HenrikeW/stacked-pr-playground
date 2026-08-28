@@ -1,0 +1,65 @@
+.machine {
+  max-width: 34rem;
+  margin: 1.5rem auto 0;
+  background: var(--panel-cream);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+}
+
+.titleBar {
+  padding: 0.4rem 0.75rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  color: #fff8e7;
+  text-align: center;
+  letter-spacing: 0.05em;
+  background: var(--chrome);
+}
+
+.screen {
+  display: flex;
+  /* Fixed floor so the button below doesn't shift as fact length varies. */
+  min-height: 9.5rem;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem;
+  padding: 1.25rem;
+  background: var(--bg-sand);
+  border: 3px solid;
+  border-color: var(--bevel-in);
+}
+
+.fact {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.controls {
+  padding: 0 0.75rem 1rem;
+  text-align: center;
+}
+
+.button {
+  padding: 0.6rem 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--accent);
+  cursor: pointer;
+  background: var(--bg-sand);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+}
+
+.button:hover {
+  background: var(--panel-cream);
+}
+
+/* The whole point of a bevel: it presses in. */
+.button:active {
+  border-color: var(--bevel-in);
+}
