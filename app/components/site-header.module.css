@@ -1,31 +1,84 @@
 .header {
-  padding: 1rem;
-  border-bottom: 1px solid currentColor;
+  margin-bottom: 1.5rem;
+}
+
+.banner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  color: #fff8e7;
+  background: var(--chrome);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+}
+
+.mascot {
+  flex: none;
+  width: 44px;
+  height: auto;
+  color: #fff8e7;
+}
+
+.mascotFlipped {
+  transform: scaleX(-1);
 }
 
 .title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.75rem, 6vw, 3rem);
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: 0.02em;
+  /* Chunky letterpress shadow -- pure 1999, and it costs nothing. */
+  text-shadow: 2px 2px 0 var(--bevel-dark);
+}
+
+.titleLink,
+.titleLink:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.titleLink:hover {
+  text-decoration: underline;
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 0.5rem;
   list-style: none;
+  background: var(--panel-cream);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+  border-top-width: 0;
 }
 
-.link {
-  color: inherit;
+.link,
+.link:visited {
+  display: block;
+  padding: 0.4rem 1rem;
+  color: var(--accent);
+  text-decoration: none;
+  background: var(--bg-sand);
+  border: 3px solid;
+  border-color: var(--bevel-out);
 }
 
-.link:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+.link:hover {
+  background: var(--panel-cream);
+  text-decoration: underline;
 }
 
-/* Not color alone, so the active page is still obvious without color perception. */
+/* Active page reads as a pressed button. Bold as well as inset, so the state
+   survives for anyone who cannot distinguish the bevel shading. */
 .link[aria-current="page"] {
   font-weight: bold;
-  text-decoration: underline;
+  background: var(--panel-cream);
+  border-color: var(--bevel-in);
 }

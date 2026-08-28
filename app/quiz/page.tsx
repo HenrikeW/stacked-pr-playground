@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import UnderConstruction from "../components/under-construction";
 
 export const metadata: Metadata = {
   title: "Quiz",
@@ -6,9 +7,9 @@ export const metadata: Metadata = {
 
 export default function Quiz() {
   return (
-    <main>
+    <>
       <h1>Quiz</h1>
-      <p>Under construction.</p>
-    </main>
+      <UnderConstruction />
+    </>
   );
 }

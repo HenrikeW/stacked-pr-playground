@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MeerkatSentry } from "./meerkat-art";
 import styles from "./site-header.module.css";
 
 const routes = [
@@ -16,7 +17,17 @@ export default function SiteHeader() {
 
   return (
     <header className={styles.header}>
-      <p className={styles.title}>Meerkat Manor</p>
+      <div className={styles.banner}>
+        <MeerkatSentry className={styles.mascot} />
+        {/* Deliberately a <p>, not an <h1>: every page owns its own <h1>. */}
+        <p className={styles.title}>
+          <Link href="/" className={styles.titleLink}>
+            Meerkat Manor
+          </Link>
+        </p>
+        <MeerkatSentry className={`${styles.mascot} ${styles.mascotFlipped}`} />
+      </div>
+
       <nav aria-label="Main">
         <ul className={styles.list}>
           {routes.map(({ href, label }) => (

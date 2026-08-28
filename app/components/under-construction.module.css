@@ -1,0 +1,64 @@
+.badge {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  max-width: 26rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1rem 1.35rem;
+  overflow: hidden;
+  background: var(--panel-cream);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+}
+
+.sign {
+  flex: none;
+  width: 56px;
+  height: 56px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sub {
+  font-size: 0.8125rem;
+}
+
+/* Hazard tape along the bottom edge. */
+.stripes {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #f2c200 0 10px,
+    var(--text) 10px 20px
+  );
+  background-size: 28.28px 28.28px;
+  animation: slide 1.2s linear infinite;
+}
+
+@keyframes slide {
+  to {
+    background-position: 28.28px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stripes {
+    animation: none;
+  }
+}
