@@ -1,0 +1,36 @@
+.counter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.odometer {
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  background: var(--text);
+  border: 3px solid;
+  border-color: var(--bevel-in);
+}
+
+.digit {
+  min-width: 1.1em;
+  padding: 0.1em 0.2em;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7cfc5a;
+  text-align: center;
+  background: #143310;
+}

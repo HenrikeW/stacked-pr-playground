@@ -1,3 +1,23 @@
+:root {
+  /* Desert burrow palette. Every text/background pair here clears WCAG AA
+     for normal text -- see the ratios in the plan before changing any of them. */
+  --bg-sand: #f5e6c8;
+  --panel-cream: #fff8e7;
+  --chrome: #a0522d;
+  --accent: #8b4513;
+  --visited: #6b3410;
+  --text: #2b1b0e;
+  --bevel-light: #ffffff;
+  --bevel-dark: #7a3e1d;
+
+  /* The one visual trick the whole design leans on: a 4-value border-color
+     that fakes a 3D edge. Swap out for -in to get the "pressed" state. */
+  --bevel-out: var(--bevel-light) var(--bevel-dark) var(--bevel-dark)
+    var(--bevel-light);
+  --bevel-in: var(--bevel-dark) var(--bevel-light) var(--bevel-light)
+    var(--bevel-dark);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -5,5 +25,74 @@
 }
 
 body {
+  min-height: 100vh;
+  color: var(--text);
   font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: var(--bg-sand);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0 12px,
+    rgb(160 82 45 / 6%) 12px 24px
+  );
+}
+
+.page-shell {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+  color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:visited {
+  color: var(--visited);
+}
+
+/* Never remove this. It is the only thing telling keyboard users where they are. */
+:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 2px;
+}
+
+hr {
+  height: 0;
+  border: 2px solid;
+  border-color: var(--bevel-dark) transparent transparent;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Visible only once focused, so it never disturbs the retro layout. */
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 10;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1rem;
+  clip-path: none;
+  font-weight: bold;
+  background: var(--panel-cream);
+  border: 3px solid;
+  border-color: var(--bevel-out);
 }

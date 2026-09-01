@@ -1,0 +1,89 @@
+.hero {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--panel-cream);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+}
+
+.heroMascot {
+  flex: none;
+  width: 96px;
+  height: auto;
+  color: var(--chrome);
+}
+
+.heroTitle {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.heroLead {
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+.sectionHeading,
+.factHeading {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+.card {
+  padding: 1rem;
+  background: var(--panel-cream);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+}
+
+.cardTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.cardIcon {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  color: var(--chrome);
+}
+
+.cardBlurb {
+  font-size: 0.875rem;
+}
+
+.factPanel {
+  padding: 1.25rem;
+  margin: 1rem 0;
+  background: var(--panel-cream);
+  border: 4px solid;
+  border-color: var(--bevel-out);
+}
+
+.factPanel p + p {
+  margin-top: 0.75rem;
+}
+
+.factHeading {
+  margin-top: 0;
+}
+
+@media (width <= 34rem) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
