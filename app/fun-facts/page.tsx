@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import UnderConstruction from "../components/under-construction";
+import FactOMatic from "./fact-o-matic";
 
 export const metadata: Metadata = {
   title: "Fun Facts",
@@ -9,7 +9,12 @@ export default function FunFacts() {
   return (
     <>
       <h1>Fun Facts</h1>
-      <UnderConstruction />
+      <p>
+        Everything you never knew about the desert&rsquo;s smallest sentries.
+        Press the button for another one &mdash; the Fact-O-Matic never runs
+        dry.
+      </p>
+      <FactOMatic />
     </>
   );
 }
