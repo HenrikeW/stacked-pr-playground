@@ -39,6 +39,7 @@ export default function Home() {
           <p>
             This page is a labour of AI-tokens, vibe-coded and permanently
             unfinished &mdash; not at all as a good fan site should be.
+            Please make it better next time.
           </p>
         </div>
       </section>
