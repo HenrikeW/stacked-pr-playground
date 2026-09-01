@@ -1,5 +1,75 @@
-.footer {
+.wrapper {
+  position: relative;
   margin-top: 2rem;
+}
+
+.peekZone {
+  position: absolute;
+  bottom: 100%;
+  left: clamp(1rem, 12%, 6rem);
+  width: 54px;
+  height: 62px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Parked out of sight below the clip edge; the keyframes lift it into view.
+   Purely decorative and absolutely positioned, so it never shifts layout. */
+.peeker {
+  width: 100%;
+  height: auto;
+  color: var(--chrome);
+  transform: translateY(100%);
+  animation: peek 19s ease-in-out infinite;
+}
+
+.peekerHead {
+  transform-box: view-box;
+  transform-origin: 50px 52px;
+  animation: peek-look 19s ease-in-out infinite;
+}
+
+/* Up for roughly three seconds in nineteen. Long gaps keep it a surprise
+   rather than a metronome. */
+@keyframes peek {
+  0%,
+  70% {
+    transform: translateY(100%);
+  }
+
+  75%,
+  86% {
+    transform: translateY(0);
+  }
+
+  91%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Has a look around only while it is actually up. */
+@keyframes peek-look {
+  0%,
+  76% {
+    transform: rotate(0deg);
+  }
+
+  79% {
+    transform: rotate(-13deg);
+  }
+
+  83% {
+    transform: rotate(12deg);
+  }
+
+  86%,
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.footer {
   padding: 1.25rem 1rem;
   font-size: 0.8125rem;
   text-align: center;

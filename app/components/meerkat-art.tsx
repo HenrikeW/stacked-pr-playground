@@ -8,13 +8,18 @@ type ArtProps = {
   className?: string;
 };
 
+type SentryProps = ArtProps & {
+  /** Applied to the head group, so CSS can swivel it independently. */
+  headClassName?: string;
+};
+
 const hidden = {
   "aria-hidden": true,
   focusable: "false",
 } as const;
 
 /** Upright sentry meerkat, the classic on-watch pose. For the hero. */
-export function MeerkatSentry({ className }: ArtProps) {
+export function MeerkatSentry({ className, headClassName }: SentryProps) {
   return (
     <svg viewBox="0 0 100 170" className={className} {...hidden}>
       {/* tail, drawn first so the body overlaps its root */}
@@ -38,19 +43,22 @@ export function MeerkatSentry({ className }: ArtProps) {
       {/* stubby forepaws held at the chest */}
       <ellipse cx="42" cy="88" rx="6" ry="9" fill="currentColor" />
       <ellipse cx="58" cy="88" rx="6" ry="9" fill="currentColor" />
-      {/* ears */}
-      <circle cx="32" cy="26" r="8" fill="currentColor" />
-      <circle cx="68" cy="26" r="8" fill="currentColor" />
-      {/* head */}
-      <circle cx="50" cy="33" r="21" fill="currentColor" />
-      {/* dark eye patches -- the meerkat's most recognisable feature */}
-      <ellipse cx="42" cy="31" rx="7" ry="6" fill="var(--text, #2b1b0e)" />
-      <ellipse cx="58" cy="31" rx="7" ry="6" fill="var(--text, #2b1b0e)" />
-      <circle cx="42" cy="30" r="2.2" fill="#fff8e7" />
-      <circle cx="58" cy="30" r="2.2" fill="#fff8e7" />
-      {/* muzzle + nose */}
-      <ellipse cx="50" cy="44" rx="9" ry="7" fill="#fff8e7" opacity="0.6" />
-      <ellipse cx="50" cy="42" rx="3.5" ry="2.8" fill="var(--text, #2b1b0e)" />
+      {/* Head kept as one group so it can swivel around the neck. */}
+      <g className={headClassName}>
+        {/* ears */}
+        <circle cx="32" cy="26" r="8" fill="currentColor" />
+        <circle cx="68" cy="26" r="8" fill="currentColor" />
+        {/* head */}
+        <circle cx="50" cy="33" r="21" fill="currentColor" />
+        {/* dark eye patches -- the meerkat's most recognisable feature */}
+        <ellipse cx="42" cy="31" rx="7" ry="6" fill="var(--text, #2b1b0e)" />
+        <ellipse cx="58" cy="31" rx="7" ry="6" fill="var(--text, #2b1b0e)" />
+        <circle cx="42" cy="30" r="2.2" fill="#fff8e7" />
+        <circle cx="58" cy="30" r="2.2" fill="#fff8e7" />
+        {/* muzzle + nose */}
+        <ellipse cx="50" cy="44" rx="9" ry="7" fill="#fff8e7" opacity="0.6" />
+        <ellipse cx="50" cy="42" rx="3.5" ry="2.8" fill="var(--text, #2b1b0e)" />
+      </g>
     </svg>
   );
 }
